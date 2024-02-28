@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaApplication.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             Background="#333740"
+             xmlns:vm="clr-namespace:AvaloniaApplication.ViewModels">
+
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*" Background="#333740"> 
+        <StackPanel Spacing="20" Margin="40" Grid.Row="0">
+            <TextBlock Text="Movie Search" FontWeight="Bold" FontSize="36" Foreground="#E5E5E5" HorizontalAlignment="Center" Margin="0,0,0,40"/>
+            <TextBox Text="{Binding SearchQuery}" Watermark="Search film..." Width="360" Margin="0,0,0,20" BorderThickness="0" FontSize="18" Background="#42454A" Foreground="#E5E5E5"/>
+            <Button Command="{Binding MakeSearch}" BorderThickness="0" Background="#4E9F3D" Width="360" Margin="0" HorizontalAlignment="Center">
+                <TextBlock Text="Search" Foreground="White" FontWeight="Bold" FontSize="18" />
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="1" Background="#2C2F33" BorderThickness="0" CornerRadius="0" Margin="40,0,40,40">
+            <ScrollViewer>
+                <TextBox Text="{Binding JsonResponse}" IsReadOnly="True" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True" BorderThickness="0" Background="Transparent" Foreground="#E5E5E5"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+    
+</UserControl>
